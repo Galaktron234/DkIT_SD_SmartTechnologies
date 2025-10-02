@@ -1,7 +1,7 @@
 import numpy as np
 
 def main():
-    stacking()
+    depth_stack()
 
 
 def arithmetic_operators():
@@ -325,7 +325,7 @@ def matrix_mult():
     print(mat_a @ mat_b)
     
     
-def stacking():
+def hv_stacking():
     x = np.arange(4).reshape(2, 2)
     print(x)
     y = np.arange(4, 12).reshape(4, 2)
@@ -333,6 +333,18 @@ def stacking():
     z = np.vstack((x, y))
     print(z)
     print(z.shape)
+    
+    
+def depth_stack():
+    x = np.arange(2).reshape(2, 1)
+    y = x * 2
+    
+    print(x)
+    print(y)
+    
+    depth_stack = np.dstack((x,y))
+    print(depth_stack)
+    print(depth_stack.shape)
     
 
         
