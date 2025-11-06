@@ -1,0 +1,13 @@
+[project]
+name = "dnn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "np-utils>=0.6.0",
+    "numpy>=2.3.4",
+    "scikit-learn>=1.7.2",
+    "tensorflow>=2.20.0",
+]
