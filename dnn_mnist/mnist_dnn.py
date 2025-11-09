@@ -7,6 +7,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import Sequential
 from keras.utils import to_categorical
 import requests
+from PIL import Image
+import cv2
 
 import random
 np.random.seed(0)
@@ -29,6 +31,19 @@ def main():
     
 def load_and_test_image(model):
     url = "https://colah.github.io/posts/2014-10-Visualizing-MNIST/img/mnist_pca/MNIST-p1815-4.png"
+    response = requests.get(url, stream = True)
+    img = Image.open(response.raw)
+    img_array = np.asarray(img)
+    resized_image = cv2.resize(img_array, (28, 28))
+    grayscale_image = cv2.cvtColor(resized_image, cv2.COLOR_BGR2GRAY)
+    white_on_black = cv2.bitwise_not(grayscale_image)
+    plt.imshow(white_on_black, cmap=plt.get_cmap('gray'))
+    plt.show()
+    white_on_black = white_on_black/255
+    white_on_black = white_on_black.reshape(1, 784)
+    prediction = np.argmax(model.predict(white_on_black), axis=1)
+    print("Predicted digit: ", str(prediction))
+    
     
     
 def train_and_evaluate(model, X_train, y_train, X_test, y_test):
