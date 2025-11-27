@@ -1,0 +1,14 @@
+[project]
+name = "german-traffic-signes-cnn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "opencv-contrib-python>=4.12.0.88",
+    "pandas>=2.3.3",
+    "pillow>=12.0.0",
+    "scipy>=1.16.3",
+    "tensorflow>=2.20.0",
+]
